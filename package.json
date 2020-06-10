@@ -4,7 +4,11 @@
   "description": "Kanca is custom react hooks library.",
   "author": "enesusta",
   "license": "MIT",
-  "repository": "enesusta/kanca",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enesusta/kanca"
+  },
+  "homepage": "https://github.com/enesusta/kanca#readme",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",

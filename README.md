@@ -13,18 +13,27 @@ npm install --save kanca
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from 'react'
 
-import { useMyHook } from 'kanca'
+import { useFetch } from 'kanca';
 
-const Example = () => {
-  const example = useMyHook()
+const SimpleComponent = ({ data }) => {
   return (
-    <div>
-      {example}
-    </div>
+    <div className="">name is {data.name} surname is {data.surname}</div>
   )
 }
+
+const App = () => {
+  const [data, loading] = useFetch('http://localhost:8080/hello');
+
+  return (
+    <div>
+      {loading ? 'loading' : <SimpleComponent data={data} />}
+    </div>
+  )
+};
+
+export default App;
 ```
 
 ## License
@@ -32,5 +41,3 @@ const Example = () => {
 MIT © [enesusta](https://github.com/enesusta)
 
 ---
-
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
