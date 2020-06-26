@@ -10,13 +10,13 @@ export const useEnvironmentFetch = (url: string): [any[], Boolean, any] => {
     const envUrl = `${process.env.REACT_APP_API}/url`;
     axios
       .get(envUrl)
-      .then((response) => {
+      .then((response: any) => {
         if (response.status) {
           setData(response.data);
           setLoading(false);
         }
       })
-      .catch( err => {
+      .catch((err: any) => {
         setError(err);
       });
   }, [url]);
