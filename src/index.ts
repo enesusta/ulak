@@ -1,2 +1,3 @@
 import { useFetch } from './useFetch';
-export { useFetch };
+import { useEnvironmentFetch } from './useEnvironmentFetch';
+export { useFetch, useEnvironmentFetch };
