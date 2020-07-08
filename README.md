@@ -1,6 +1,5 @@
 
 <br/>
-<br/>
 
 <div align="center">
 
@@ -11,10 +10,6 @@
 [![NPM](https://img.shields.io/npm/v/kanca.svg)](https://www.npmjs.com/package/kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 </div>
-
-
-Before using any hook, you should read its documentation!
---
 
 ## ☕️ Features
 
@@ -37,6 +32,60 @@ by using `yarn`:
 $ yarn add kanca
 ```
 
+kanca uses [env-cmd](https://www.npmjs.com/package/env-cmd) as **peerDependency**. Therefore just create files in **root-dir** which named 
+- `.env.development` and
+- `.env.production` 
+  
+and modify as listed below.
+
+.env.development
+```env
+REACT_APP_API=http://localhost:8080
+```
+
+.env.production
+```env
+REACT_APP_API=https://api.myawesomewebservice.com
+```
+
+After creating files `make sure to hide` those files in **.gitignore.** They might include our credentials etc.
+
+You could set various **environment variables** that needs in your application in those files like `.env.development or .env.production.`
+
+- If you're ok until here, we can continue
+
+
+
+You could import kanca in two ways
+
+- kanca
+- kanca/**subpackage-name**
+
+
+What do I mean?
+
+*kanca* has several subpackages. For example:
+
+- http
+- util ( not implemented yet )
+
+That's exactly why both imports are valid.
+
+
+```jsx
+import { useFetch } from "kanca";
+```
+
+or
+
+```jsx
+import { useFetch } from "kanca/http";
+```
+
+
+Before using any hook, you should read its documentation!
+
+
 ## 🎨 Hooks
 
 - [useFetch](docs/useFetch.md)
@@ -51,5 +100,3 @@ $ yarn add kanca
 ## License
 
 MIT © [enesusta](https://github.com/enesusta)
-
----
