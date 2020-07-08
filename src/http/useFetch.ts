@@ -2,21 +2,15 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 
 export default function useFetch(url: string,
-                                 isEnv: boolean = false,
-                                 env: string): [any[], Boolean, any] {
+                                 env: string = 'REACT_APP_API'): [any[], Boolean, any] {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
 
-    console.log(`url is ${url}`)
-    console.log(`isEnv is ${isEnv}`)
-    console.log(`env is ${env}`)
-
     let envUrl;
-    if (isEnv && env) envUrl = `${process.env[env]}${url}`;
-    else if (isEnv) envUrl = `${process.env.REACT_APP_API}${url}`;
+    if (env) envUrl = `${process.env[env]}${url}`;
     else envUrl = url;
 
     axios

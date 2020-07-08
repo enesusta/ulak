@@ -52,11 +52,20 @@ After creating files `make sure to hide` those files in **.gitignore.** They mig
 
 You could set various **environment variables** that needs in your application in those files like `.env.development or .env.production.`
 
-- If you're ok until here, we can continue
+Then: modify your **package.json['scripts']** like listed below
 
+```json
+"scripts": {
+    "start": "env-cmd -f ./.env.development react-scripts start",
+    "build": "env-cmd -f ./.env.production react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
 
+If you're ok until here, we can continue
 
-You could import kanca in two ways
+You could import kanca **in two ways**
 
 - kanca
 - kanca/**subpackage-name**
@@ -89,7 +98,6 @@ Before using any hook, you should read its documentation!
 ## 🎨 Hooks
 
 - [useFetch](docs/useFetch.md)
-- [useAuthFetch](docs/useAuthFetch.md)
 
 ## Made with
 
