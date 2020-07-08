@@ -1,40 +1,52 @@
-# kanca
 
-> Kanca is custom react hooks library.
+<br/>
+<br/>
 
+<div align="center">
+
+ Kanca is custom react hooks library.
+
+
+[![CodeFactor](https://www.codefactor.io/repository/github/enesusta/kanca/badge)](https://www.codefactor.io/repository/github/enesusta/kanca)
 [![NPM](https://img.shields.io/npm/v/kanca.svg)](https://www.npmjs.com/package/kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+</div>
+
+
+Before using any hook, you should read its documentation!
+--
+
+## ☕️ Features
+
+* Small and lightweight
+* Easy to learn
+* Functional approach
+* Fully written in *Typescript*
+
+
+## 🕺 Install
+
+by using `npm`:
+```bash
+$ npm install kanca
+```
+
+by using `yarn`:
 
 ```bash
-npm install --save kanca
+$ yarn add kanca
 ```
 
-## Usage
+## 🎨 Hooks
 
-```tsx
-import React from 'react'
+- [useFetch](docs/useFetch.md)
+- [useAuthFetch](docs/useAuthFetch.md)
 
-import { useFetch } from 'kanca';
+## Made with
 
-const SimpleComponent = ({ data }) => {
-  return (
-    <div className="">name is {data.name} surname is {data.surname}</div>
-  )
-}
+- [React](https://reactjs.org/)
+- [Rollup](https://rollupjs.org/guide/en/)
 
-const App = () => {
-  const [data, loading] = useFetch('http://localhost:8080/hello');
-
-  return (
-    <div>
-      {loading ? 'loading' : <SimpleComponent data={data} />}
-    </div>
-  )
-};
-
-export default App;
-```
 
 ## License
 
