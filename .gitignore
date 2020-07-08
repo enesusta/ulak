@@ -4,9 +4,13 @@
 # dependencies
 node_modules
 
+# webstorm
+.idea
+
 # builds
 build
 dist
+http
 .rpt2_cache
 
 # misc

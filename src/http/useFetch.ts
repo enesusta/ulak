@@ -1,22 +1,27 @@
-import {useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
 
-export const useFetch = (url: string): [any[], Boolean, any] => {
+export default function useFetch(url: string,
+                                 env: string = 'REACT_APP_API'): [any[], Boolean, any] {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log(localStorage.getItem('test'));
+
+    let envUrl;
+    if (env) envUrl = `${process.env[env]}${url}`;
+    else envUrl = url;
+
     axios
-      .get(url)
-      .then((response) => {
+      .get(envUrl)
+      .then((response: any) => {
         if (response.status) {
           setData(response.data);
           setLoading(false);
         }
       })
-      .catch( err => {
+      .catch((err: any) => {
         setError(err);
       });
   }, [url]);
