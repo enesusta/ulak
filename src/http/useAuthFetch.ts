@@ -5,7 +5,7 @@ import axios, {AxiosRequestConfig} from "axios";
 export default function useAuthFetch(url: string,
                                      env: string = 'REACT_APP_API',
                                      token: string = 'token',
-                                     config: AxiosRequestConfig = null as any): [any[], Boolean, any] {
+                                     config: AxiosRequestConfig = null as any) {
   const [data, setData] = React.useState<any[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [error, setError] = React.useState(null);

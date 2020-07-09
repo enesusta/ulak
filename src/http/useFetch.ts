@@ -3,7 +3,7 @@ import axios from "axios";
 
 //@ts-ignore
 export default function useFetch(url: string,
-                                 env: string = 'REACT_APP_API'): [any[], Boolean, any] {
+                                 env: string = 'REACT_APP_API') {
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,5 +31,5 @@ export default function useFetch(url: string,
       }
   }, [url]);
 
-  return { data, isLoading, error } ;
+  return { data , isLoading, error } ;
 };
