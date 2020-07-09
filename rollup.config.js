@@ -32,7 +32,9 @@ export default [
       nodeResolve({jsnext: true, preferBuiltins: true, browser: true}),
       typescript({
         rollupCommonJSResolveHack: true,
-        clean: true
+        clean: true,
+        declaration: true,
+        declarationDir: 'dist'
       }),
       commonjs({
         namedExports: {
@@ -57,7 +59,9 @@ export default [
       nodeResolve({jsnext: true, preferBuiltins: true, browser: true}),
       typescript({
         rollupCommonJSResolveHack: true,
-        clean: true
+        clean: true,
+        declaration: true,
+        declarationDir: 'http'
       }),
       commonjs({
         namedExports: {
