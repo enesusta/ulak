@@ -23,7 +23,7 @@
 
 by using `npm`:
 ```bash
-$ npm install kanca
+$ npm i kanca
 ```
 
 by using `yarn`:

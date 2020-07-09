@@ -26,7 +26,7 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const [data, loading, err] = useFetch('https://jsonplaceholder.typicode.com/todos/1', null);
+    const { data, isLoading, err } = useFetch('https://jsonplaceholder.typicode.com/todos/1', null);
 
     return (
         <li>
@@ -54,7 +54,7 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const [data, loading, err] = useFetch('/todos/1');
+    const { data, isLoading, err } = useFetch('/todos/1');
 
     /**
      * This statement is actually equal to 
@@ -83,7 +83,7 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const [data, loading, err] = useFetch('/3', 'REACT_APP_JSON_POST');
+    const { data, isLoading, error } = useFetch('/3', 'REACT_APP_JSON_POST');
 
     /**
      * This statement is actually equal to 
