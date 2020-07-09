@@ -1,10 +1,11 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 
+//@ts-ignore
 export default function useFetch(url: string,
-                                 env: string = 'REACT_APP_API'): [any[], Boolean, any] {
+                                 env: string = 'REACT_APP_API') {
   const [data, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -18,13 +19,17 @@ export default function useFetch(url: string,
       .then((response: any) => {
         if (response.status) {
           setData(response.data);
-          setLoading(false);
+          setIsLoading(false);
         }
       })
       .catch((err: any) => {
         setError(err);
       });
+
+      return () => {
+        setIsLoading(false);
+      }
   }, [url]);
 
-  return [data, loading, error];
+  return { data , isLoading, error } ;
 };
