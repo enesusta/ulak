@@ -1,26 +1,25 @@
-import {useState, useEffect} from "react";
+import React from "react";
 import axios, {AxiosRequestConfig} from "axios";
 
 export default function useAuthFetch(url: string,
-                                     config: AxiosRequestConfig,
-                                     isEnv: boolean = false,
-                                     env: string): [any[], Boolean, any] {
-  const [data, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+                                     env: string = 'REACT_APP_API',
+                                     token: string = 'token',
+                                     config: AxiosRequestConfig = null as any): [any[], Boolean, any] {
+  const [data, setData] = React.useState<any[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
   const httpHeaders = config ?
     config : {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+        Authorization: `Bearer ${localStorage.getItem(token)}`
       }
     }
 
-  useEffect(() => {
+  React.useEffect(() => {
 
     let envUrl;
-    if (isEnv && env) envUrl = `${process.env[env]}${url}`;
-    else if (isEnv) envUrl = `${process.env.REACT_APP_API}${url}`;
+    if (env) envUrl = `${process.env[env]}${url}`;
     else envUrl = url;
 
     axios
