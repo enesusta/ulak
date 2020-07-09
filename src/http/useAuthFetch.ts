@@ -1,12 +1,13 @@
 import React from "react";
 import axios, {AxiosRequestConfig} from "axios";
 
+//@ts-ignore
 export default function useAuthFetch(url: string,
                                      env: string = 'REACT_APP_API',
                                      token: string = 'token',
                                      config: AxiosRequestConfig = null as any): [any[], Boolean, any] {
   const [data, setData] = React.useState<any[]>([]);
-  const [loading, setLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
   const httpHeaders = config ?
@@ -27,13 +28,17 @@ export default function useAuthFetch(url: string,
       .then((response) => {
         if (response.status) {
           setData(response.data);
-          setLoading(false);
+          setIsLoading(false);
         }
       })
       .catch(err => {
         setError(err);
       });
+
+      return () => {
+        setIsLoading(false);
+      }
   }, [url]);
 
-  return [data, loading, error];
+  return { data, isLoading, error };
 };

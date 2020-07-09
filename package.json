@@ -1,6 +1,6 @@
 {
   "name": "kanca",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Kanca is custom react hooks library.",
   "author": "enesusta",
   "license": "MIT",
@@ -27,9 +27,11 @@
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build"
   },
-  "peerDependencies": {
-    "react": "^16.9.0",
+  "dependencies": {
     "env-cmd": "^10.1.0"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
