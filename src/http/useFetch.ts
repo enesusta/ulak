@@ -16,20 +16,16 @@ export default function useFetch(url: string,
 
     axios
       .get(envUrl)
-      .then((response: any) => {
-        if (response.status) {
-          setData(response.data);
-          setIsLoading(false);
-        }
+      .then((response) => {
+        setData(response.data);
+        setIsLoading(false);
       })
-      .catch((err: any) => {
-        setError(err);
+      .catch(err => {
+        setError(err.response);
+        setIsLoading(false);
       });
 
-      return () => {
-        setIsLoading(false);
-      }
   }, [url]);
 
-  return { data , isLoading, error } ;
+  return {data, isLoading, error};
 };
