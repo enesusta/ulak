@@ -8,7 +8,7 @@ export default function useAuthFetch(url: string,
                                      config: AxiosRequestConfig = null as any) {
   const [data, setData] = React.useState<any[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<any>();
 
   const httpHeaders = config ?
     config : {
@@ -26,19 +26,15 @@ export default function useAuthFetch(url: string,
     axios
       .get(envUrl, httpHeaders)
       .then((response) => {
-        if (response.status) {
-          setData(response.data);
-          setIsLoading(false);
-        }
+        setData(response.data);
+        setIsLoading(false);
       })
       .catch(err => {
-        setError(err);
+        setError(err.response);
+        setIsLoading(false);
       });
 
-      return () => {
-        setIsLoading(false);
-      }
   }, [url]);
 
-  return { data, isLoading, error };
+  return {data, isLoading, error};
 };
