@@ -32,7 +32,15 @@ by using `yarn`:
 $ yarn add kanca
 ```
 
-kanca uses [env-cmd](https://www.npmjs.com/package/env-cmd) as **peerDependency**. Therefore just create files in **root-dir** which named 
+kanca uses [env-cmd](https://www.npmjs.com/package/env-cmd) as **peerDependency**. Make sure to install it if you want to environment variables in http hooks like `useFetch`. 
+
+If you don't know how to install it, just follow below section
+
+```bash
+yarn add env-cmd
+```
+
+Therefore just create files in **root-dir** which named 
 - `.env.development` and
 - `.env.production` 
   
@@ -76,6 +84,7 @@ What do I mean?
 *kanca* has several subpackages. For example:
 
 - http
+- form
 - util ( not implemented yet )
 
 That's exactly why both imports are valid.
@@ -98,6 +107,7 @@ Before using any hook, you should read its documentation!
 ## 🎨 Hooks
 
 - [useFetch](docs/useFetch.md)
+- [useObject](docs/useObject.md)
 
 ## Made with
 
