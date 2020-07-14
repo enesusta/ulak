@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 
-//@ts-ignore
 export default function useFetch(url: string,
                                  env: string = 'REACT_APP_API') {
   const [data, setData] = useState<any[]>([]);
