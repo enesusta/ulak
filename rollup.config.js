@@ -72,6 +72,24 @@ export default [
       json({compact: true}),
       terser()
     ]
+  },
+  {
+    input: 'src/form/index.ts',
+    output: [
+      {
+        dir: 'form',
+        format: 'es'
+      },
+    ],
+    plugins: [
+      typescript({
+        rollupCommonJSResolveHack: true,
+        clean: true,
+        declaration: true,
+        declarationDir: 'form'
+      }),
+      terser()
+    ]
   }
 
 ]

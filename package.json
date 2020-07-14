@@ -17,7 +17,8 @@
     "npm": ">=5"
   },
   "files": [
-    "http/*"
+    "http/*",
+    "form/*"
   ],
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
@@ -27,11 +28,9 @@
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build"
   },
-  "dependencies": {
-    "env-cmd": "^10.1.0"
-  },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "env-cmd": "^10.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
