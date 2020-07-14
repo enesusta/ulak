@@ -1,9 +1,9 @@
 import typescript from 'rollup-plugin-typescript2'
-import commonjs from 'rollup-plugin-commonjs'
+import commonjs from '@rollup/plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
-import nodeResolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-import json from 'rollup-plugin-json';
+import nodeResolve from '@rollup/plugin-node-resolve'
+import url from '@rollup/plugin-url'
+import json from '@rollup/plugin-json';
 import {terser} from "rollup-plugin-terser";
 
 import pkg from './package.json'
@@ -37,9 +37,6 @@ export default [
         declarationDir: 'dist'
       }),
       commonjs({
-        namedExports: {
-          'node_modules/axios/index.js': ['axios'],
-        },
         include: 'node_modules/axios/**'
       }),
       json({compact: true}),
@@ -64,12 +61,27 @@ export default [
         declarationDir: 'http'
       }),
       commonjs({
-        namedExports: {
-          'node_modules/axios/index.js': ['axios'],
-        },
         include: 'node_modules/axios/**'
       }),
       json({compact: true}),
+      terser()
+    ]
+  },
+  {
+    input: 'src/form/index.ts',
+    output: [
+      {
+        dir: 'form',
+        format: 'es'
+      },
+    ],
+    plugins: [
+      typescript({
+        rollupCommonJSResolveHack: true,
+        clean: true,
+        declaration: true,
+        declarationDir: 'form'
+      }),
       terser()
     ]
   }

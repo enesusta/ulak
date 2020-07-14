@@ -1,3 +1,2 @@
-import useFetch from './http/useFetch';
-import useAuthFetch from "./http/useAuthFetch";
-export { useFetch, useAuthFetch };
+export { default as useAuthFetch } from './http/useAuthFetch';
+export { default as useFetch } from './http/useFetch';
