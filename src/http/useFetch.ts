@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react";
-import axios from "axios";
+import {useEffect, useState} from "react";
+import handleResponseType from './util/handleResponseType';
 
 export default function useFetch(url: string,
                                  env: string = 'REACT_APP_API') {
@@ -13,18 +13,19 @@ export default function useFetch(url: string,
     if (env) envUrl = `${process.env[env]}${url}`;
     else envUrl = url;
 
-    axios
-      .get(envUrl)
-      .then((response) => {
-        setData(response.data);
+    fetch(envUrl)
+      .then(response => handleResponseType(response))
+      .then(response => {
+        setData(response);
         setIsLoading(false);
       })
       .catch(err => {
-        setError(err.response);
+        setError(err);
         setIsLoading(false);
       });
 
+
   }, [url]);
 
-  return {data, isLoading, error};
+  return [data, isLoading, error];
 };

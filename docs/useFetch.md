@@ -26,7 +26,15 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const { data, isLoading, err } = useFetch('https://jsonplaceholder.typicode.com/todos/1', null);
+    const [data, load, err] = useFetch('https://jsonplaceholder.typicode.com/todos/1', null);
+
+    if(load) {
+        return <li>Loading.. </li>
+    }
+
+    if(err) {
+        return <li>Http Error status code: {err.status} </li>
+    }
 
     return (
         <li>
@@ -54,12 +62,20 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const { data, isLoading, err } = useFetch('/todos/1');
+    const [data, load, err] = useFetch('/todos/1');
 
     /**
      * This statement is actually equal to 
      * https://jsonplaceholder.typicode.com/todos/1
      * */
+
+    if(load) {
+        return <li>Loading.. </li>
+    }
+
+    if(err) {
+        return <li>Http Error status code: {err.status} </li>
+    }
 
     return (
         <li>
@@ -83,12 +99,20 @@ import { useFetch } from "kanca/http";
 
 
 const Application = () => {
-    const { data, isLoading, error } = useFetch('/3', 'REACT_APP_JSON_POST');
+    const [data, load, err] = useFetch('/3', 'REACT_APP_JSON_POST');
 
     /**
      * This statement is actually equal to 
      * https://jsonplaceholder.typicode.com/posts/3
      * */
+
+    if(load) {
+        return <li>Loading.. </li>
+    }
+
+    if(err) {
+        return <li>Http Error status code: {err.status} </li>
+    }
 
     return (
         <li>
