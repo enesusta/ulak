@@ -1,40 +1,38 @@
-import React from "react";
-import axios, {AxiosRequestConfig} from "axios";
+import { useState, useEffect } from "react";
+import handleResponseType from "./util/handleResponseType";
+import defaultHeaders from "./util/defaultHttpHeader";
 
-//@ts-ignore
-export default function useAuthFetch(url: string,
-                                     env: string = 'REACT_APP_API',
-                                     token: string = 'token',
-                                     config: AxiosRequestConfig = null as any) {
-  const [data, setData] = React.useState<any[]>([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [error, setError] = React.useState<any>();
+export default function useAuthFetch(
+  url: string,
+  env: string = "REACT_APP_API",
+  token: string = 'token',
+  config: Headers = null as any
+) {
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(0);
 
-  const httpHeaders = config ?
-    config : {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem(token)}`
-      }
-    }
+  const httpHeaders: Headers = config ? config : defaultHeaders(token);
 
-  React.useEffect(() => {
-
+  useEffect(() => {
     let envUrl;
     if (env) envUrl = `${process.env[env]}${url}`;
     else envUrl = url;
 
-    axios
-      .get(envUrl, httpHeaders)
-      .then((response) => {
-        setData(response.data);
-        setIsLoading(false);
+    fetch(envUrl, {
+      method: "GET",
+      headers: httpHeaders,
+    })
+      .then((res) => handleResponseType(res))
+      .then((res) => {
+        setData(res);
+        setLoading(false);
       })
-      .catch(err => {
-        setError(err.response);
-        setIsLoading(false);
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
       });
-
   }, [url]);
 
-  return {data, isLoading, error};
-};
+  return [data, loading, error];
+}

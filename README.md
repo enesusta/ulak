@@ -3,11 +3,14 @@
 
 <div align="center">
 
- Kanca is custom react hooks library.
+ Kanca is custom `React Hooks` library.
 
 
-[![CodeFactor](https://www.codefactor.io/repository/github/enesusta/kanca/badge)](https://www.codefactor.io/repository/github/enesusta/kanca)
-[![NPM](https://img.shields.io/npm/v/kanca.svg)](https://www.npmjs.com/package/kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+![npm](https://img.shields.io/npm/v/kanca?color=red&style=for-the-badge)
+[![CodeFactor](https://www.codefactor.io/repository/github/enesusta/kanca/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/enesusta/kanca)
+![npm bundle size](https://img.shields.io/bundlephobia/min/kanca?color=orange&style=for-the-badge)
+![npm](https://img.shields.io/npm/dm/kanca?style=for-the-badge)
+![NPM](https://img.shields.io/npm/l/kanca?color=blue&style=for-the-badge)
 
 </div>
 
