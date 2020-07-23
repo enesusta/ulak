@@ -31,7 +31,8 @@
   },
   "peerDependencies": {
     "react": "^16.9.0",
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "rxjs": "6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

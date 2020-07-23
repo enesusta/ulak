@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { debounceTime, tap, distinctUntilChanged } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 import { Subject } from "rxjs";
 
 export default function useObject(initial: any, delay: number = 500) {
@@ -8,8 +8,8 @@ export default function useObject(initial: any, delay: number = 500) {
 
   const handlers = initial
     ? Object.keys(initial).map((key) => {
-        return (event: any, isDom: boolean = true) => {
-          if (isDom)
+        return (event: any) => {
+          if (event?.target?.value)
             onObject$.next(
               Object.assign({}, value, { [key]: event.target.value })
             );
@@ -22,7 +22,6 @@ export default function useObject(initial: any, delay: number = 500) {
     const subscription = onObject$
       .pipe(
         debounceTime(delay),
-        tap((a) => console.log(a)),
         distinctUntilChanged()
       )
       .subscribe(setValue);
@@ -31,9 +30,3 @@ export default function useObject(initial: any, delay: number = 500) {
 
   return [value, handlers];
 }
-
-/*function setState(event: any, key: string) {
-    if (event?.target?.value)
-      setValue(Object.assign({}, value, { [key]: event.target.value }));
-    else setValue(Object.assign({}, value, { [key]: event }));
-  }*/
