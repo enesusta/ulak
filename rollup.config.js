@@ -75,7 +75,8 @@ export default [
         declarationDir: 'form'
       }),
       terser()
-    ]
+    ],
+    external: ['rxjs', 'rxjs/operators']
   }
 
 ]
