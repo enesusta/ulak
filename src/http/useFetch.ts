@@ -10,7 +10,7 @@ export default function useFetch(url: string,
   useEffect(() => {
 
     let envUrl;
-    if (env) envUrl = `${process.env[env]}${url}`;
+    if (env) envUrl = `${process.env[`REACT_APP_${env}`]}${url}`;
     else envUrl = url;
 
     fetch(envUrl)
