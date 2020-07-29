@@ -40,7 +40,7 @@
     "node_modules",
     "build",
     "dist",
-    "example",
+    "test",
     "rollup.config.js"
   ]
 }

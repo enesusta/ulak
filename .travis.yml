@@ -16,6 +16,7 @@ branches:
 
 script:
   - yarn
+  - yarn coveralls
 
 before_deploy:
   - npm --no-git-tag-version version patch
