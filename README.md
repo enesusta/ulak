@@ -5,12 +5,15 @@
 
  Kanca is custom `React Hooks` library.
 
-
-![npm](https://img.shields.io/npm/v/kanca?color=red&style=for-the-badge)
+[![Build Status](https://img.shields.io/travis/73VW/TechnicalReport.svg?style=for-the-badge&label=build)](https://travis-ci.com/enesusta/kanca)
+![npm](https://img.shields.io/npm/v/kanca?color=orange&style=for-the-badge)
+![Coveralls github](https://img.shields.io/coveralls/github/enesusta/kanca?style=for-the-badge)
 [![CodeFactor](https://www.codefactor.io/repository/github/enesusta/kanca/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/enesusta/kanca)
+[![Package Quality](https://npm.packagequality.com/shield/kanca.svg?style=for-the-badge&color=red)](https://packagequality.com/#?package=kanca)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/kanca?color=orange&style=for-the-badge)
 ![npm](https://img.shields.io/npm/dm/kanca?style=for-the-badge)
 ![NPM](https://img.shields.io/npm/l/kanca?color=blue&style=for-the-badge)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=for-the-badge&color=black)](https://standardjs.com)
 
 </div>
 

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import handleResponseType from './util/handleResponseType';
 
 export default function useFetch(url: string,
-                                 env: string = 'REACT_APP_API') {
+                                 env: string = 'API') {
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

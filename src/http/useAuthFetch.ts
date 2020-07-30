@@ -4,7 +4,7 @@ import defaultHeaders from "./util/defaultHttpHeader";
 
 export default function useAuthFetch(
   url: string,
-  env: string = "REACT_APP_API",
+  env: string = "API",
   token: string = 'token',
   config: Headers = null as any
 ) {
