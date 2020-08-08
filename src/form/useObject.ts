@@ -9,21 +9,15 @@ export default function useObject(initial: any, delay: number = 500) {
   const handlers = initial
     ? Object.keys(initial).map((key) => {
         return (event: any) => {
-          if (event?.target?.value)
-            onObject$.next(
-              Object.assign({}, value, { [key]: event.target.value })
-            );
-          else onObject$.next(Object.assign({}, value, { [key]: event }));
+           onObject$.next(Object.assign({}, value, { [key]: event })); 
         };
       })
     : null;
 
   useEffect(() => {
-    const subscription = onObject$
-      .pipe(
-        debounceTime(delay),
-        distinctUntilChanged()
-      )
+    const subscription =
+     onObject$
+      .pipe(debounceTime(delay), distinctUntilChanged())
       .subscribe(setValue);
     return () => subscription.unsubscribe();
   }, []);
