@@ -113,17 +113,17 @@ const Form = () => {
             <h3>Login</h3>
             <form>
                 <label> Author </label>
-                <input type="text" value={book.author} onChange={bookHandlers[0]} />
+                <input type="text" value={book.author} onChange={e => bookHandlers[0](e.target.value)} />
                 <label> ISBN </label>
-                <input type="text" value={book.isbn} onChange={bookHandlers[1]} />
+                <input type="text" value={book.isbn} onChange={e => bookHandlers[1](e.target.value)} />
                 <label> Title </label>
-                <input type="text" value={book.title} onChange={bookHandlers[2]} />
+                <input type="text" value={book.title} onChange={e => bookHandlers[2](e.target.value)} />
                 <label> Language </label>
-                <input type="text" value={book.language} onChange={bookHandlers[3]} />
+                <input type="text" value={book.language} onChange={e => bookHandlers[3](e.target.value)} />
                 <label> Pages </label>
-                <input type="text" value={book.pages} onChange={bookHandlers[4]} />
+                <input type="text" value={book.pages} onChange={e => bookHandlers[4](e.target.value)} />
                 <label> Pages </label>
-                <input type="text" value={book.price} onChange={bookHandlers[5]} />
+                <input type="text" value={book.price} onChange={e => bookHandlers[5](e.target.value)} />
             </form>
         </section>
     )

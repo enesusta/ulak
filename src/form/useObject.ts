@@ -9,10 +9,7 @@ export default function useObject(initial: any, delay: number = 500) {
   const handlers = initial
     ? Object.keys(initial).map((key) => {
         return (event: any) => {
-          if (event?.target?.value)
-            if (event.target.value?.constructor === Object) Object.assign({}, value, { [key]: "" });
-            else onObject$.next( Object.assign({}, value, { [key]: event.target.value }));
-          else onObject$.next(Object.assign({}, value, { [key]: event }));
+           onObject$.next(Object.assign({}, value, { [key]: event })); 
         };
       })
     : null;
