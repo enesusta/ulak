@@ -68,6 +68,7 @@ export default [
       },
     ],
     plugins: [
+      external(),
       typescript({
         rollupCommonJSResolveHack: true,
         clean: true,
@@ -77,6 +78,25 @@ export default [
       terser()
     ],
     external: ['rxjs', 'rxjs/operators']
+  },
+  {
+    input: 'src/util/index.ts',
+    output: [
+      {
+        dir: 'util',
+        format: 'es'
+      },
+    ],
+    plugins: [
+      external(),
+      typescript({
+        rollupCommonJSResolveHack: true,
+        clean: true,
+        declaration: true,
+        declarationDir: 'util'
+      }),
+      terser()
+    ]
   }
 
 ]
